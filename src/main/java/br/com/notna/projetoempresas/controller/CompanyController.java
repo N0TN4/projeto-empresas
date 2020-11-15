@@ -31,7 +31,6 @@ public class CompanyController {
 	@GetMapping
 	public ResponseEntity<Map<String, Object>> getAll() {
 		Map<String, Object> response = new HashMap<String, Object>();
-		repository.save(new Company());
 		Iterable<Company> companys = repository.findAll();
 
 		response.put("status", true);
@@ -39,11 +38,10 @@ public class CompanyController {
 		return ResponseEntity.ok().body(response);
 	}
 
-	@PostMapping
+	@PostMapping(produces = "application/json", consumes= "application/json")
 	public ResponseEntity<Map<String, Object>> create(@RequestBody Company company) {
 		Map<String, Object> response = new HashMap<String, Object>();
 		repository.save(company);
-
 		response.put("status", true);
 		response.put("data", company);
 		return ResponseEntity.ok().body(response);
@@ -82,7 +80,6 @@ public class CompanyController {
 
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}).orElse(new ResponseEntity<>(response, HttpStatus.NOT_FOUND));
-//		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 
 	}
 

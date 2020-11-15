@@ -17,64 +17,78 @@ import lombok.NoArgsConstructor;
 public class Company {
 	 @Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 
     private long id;
     private String tradeName;
     private String corporateName;
-    private long country;
-    private long state;
-    private long city;
-    private long neighbourhood;
+    private String country;
+	private String state;
+    private String city;
+    private String neighbourhood;
     private String address;
     private String phone;
     private String federalTaxNumber;
+    
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getTradeName() {
+		return tradeName;
+	}
+	public void setTradeName(String tradeName) {
+		this.tradeName = tradeName;
+	}
+	public String getCorporateName() {
+		return corporateName;
+	}
+	public void setCorporateName(String corporateName) {
+		this.corporateName = corporateName;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getNeighbourhood() {
+		return neighbourhood;
+	}
+	public void setNeighbourhood(String neighbourhood) {
+		this.neighbourhood = neighbourhood;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getFederalTaxNumber() {
+		return federalTaxNumber;
+	}
+	public void setFederalTaxNumber(String federalTaxNumber) {
+		this.federalTaxNumber = federalTaxNumber;
+	}
 
-    @JsonProperty("id")
-    public long getID() { return id; }
-    @JsonProperty("id")
-    public void setID(long value) { this.id = value; }
-
-    @JsonProperty("tradeName")
-    public String getTradeName() { return tradeName; }
-    @JsonProperty("tradeName")
-    public void setTradeName(String value) { this.tradeName = value; }
-
-    @JsonProperty("corporateName")
-    public String getCorporateName() { return corporateName; }
-    @JsonProperty("corporateName")
-    public void setCorporateName(String value) { this.corporateName = value; }
-
-    @JsonProperty("country")
-    public long getCountry() { return country; }
-    @JsonProperty("country")
-    public void setCountry(long value) { this.country = value; }
-
-    @JsonProperty("state")
-    public long getState() { return state; }
-    @JsonProperty("state")
-    public void setState(long value) { this.state = value; }
-
-    @JsonProperty("city")
-    public long getCity() { return city; }
-    @JsonProperty("city")
-    public void setCity(long value) { this.city = value; }
-
-    @JsonProperty("neighbourhood")
-    public long getNeighbourhood() { return neighbourhood; }
-    @JsonProperty("neighbourhood")
-    public void setNeighbourhood(long value) { this.neighbourhood = value; }
-
-    @JsonProperty("address")
-    public String getAddress() { return address; }
-    @JsonProperty("address")
-    public void setAddress(String value) { this.address = value; }
-
-    @JsonProperty("phone")
-    public String getPhone() { return phone; }
-    @JsonProperty("phone")
-    public void setPhone(String value) { this.phone = value; }
-
-    @JsonProperty("federalTaxNumber")
-    public String getFederalTaxNumber() { return federalTaxNumber; }
-    @JsonProperty("federalTaxNumber")
-    public void setFederalTaxNumber(String value) { this.federalTaxNumber = value; }
+   
 }

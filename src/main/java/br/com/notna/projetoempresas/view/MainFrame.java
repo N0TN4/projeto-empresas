@@ -35,6 +35,8 @@ import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class MainFrame extends JFrame {
 
@@ -85,6 +87,7 @@ public class MainFrame extends JFrame {
 		contentPane.add(scrollPane);
 
 		JButton btnNewButton = new JButton("Adicionar");
+		btnNewButton.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -93,7 +96,7 @@ public class MainFrame extends JFrame {
 //				
 			}
 		});
-		btnNewButton.setBounds(240, 193, 89, 23);
+		btnNewButton.setBounds(225, 202, 89, 41);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Atualizar");
@@ -107,7 +110,7 @@ public class MainFrame extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(240, 144, 89, 23);
+		btnNewButton_1.setBounds(225, 115, 89, 23);
 		contentPane.add(btnNewButton_1);
 
 		JLabel lblNewLabel = new JLabel("Cadastro de empresas");
@@ -128,6 +131,10 @@ public class MainFrame extends JFrame {
 		});
 		btnNewButton_2.setBounds(151, 115, 60, 23);
 		contentPane.add(btnNewButton_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("Buscar");
+		lblNewLabel_1.setBounds(42, 98, 46, 14);
+		contentPane.add(lblNewLabel_1);
 
 		try {
 			get("http://localhost:8080/company");
@@ -140,7 +147,7 @@ public class MainFrame extends JFrame {
 
 	void adicionarUmaEmpresa(Company empresa) {
 		empresa.setCorporateName(empresa.getCorporateName());
-
+		
 		modelo_da_lista.addElement("#" + empresa.getId()+ " " + empresa.getCorporateName());
 
 		list.setModel(modelo_da_lista);
@@ -149,6 +156,7 @@ public class MainFrame extends JFrame {
 	public void get(String uri) throws Exception {
 		modelo_da_lista.removeAllElements();
 		list.setModel(modelo_da_lista);
+		
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpUriRequest httpUriRequest = new HttpGet(uri);
 
@@ -169,6 +177,8 @@ public class MainFrame extends JFrame {
 
 	}
 
+
+	
 	void buscarEmpresas(String nomeDaEmpresa) {
 		DefaultListModel<String> newList = new DefaultListModel<String>();
 
